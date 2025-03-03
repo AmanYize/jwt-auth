@@ -9,9 +9,15 @@
     <nav>
       <h1><a href="/">Ninja Smoothies</a></h1>
       <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <% if (user) { %>
+        <li>Welcome, <%= user.email %></li>
         <li><a href="/logout">Logout</a></li>
+        <!-- ✅ Logout should be inside if (user) -->
+        <% } else { %>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/login">Login</a></li>
+        <!-- ✅ Login should be inside else -->
+        <% } %>
       </ul>
     </nav>
   </body>
